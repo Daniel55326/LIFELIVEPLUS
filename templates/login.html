@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Autentificare cont</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #ffffff;
+      color: #222;
+    }
+
+    .page {
+      min-height: 100vh;
+      max-width: 420px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 26px 24px;
+    }
+
+    .title {
+      font-size: 32px;
+      font-weight: 500;
+      margin-bottom: 40px;
+    }
+
+    .form { width: 100%; }
+
+    .input-group { margin-bottom: 28px; }
+
+    .input-wrapper {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ececec;
+      padding: 10px 0;
+    }
+
+    .input-icon {
+      font-size: 18px;
+      margin-right: 10px;
+      opacity: 0.55;
+    }
+
+    .input-wrapper input {
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      background: transparent;
+    }
+
+    .input-wrapper input::placeholder {
+      color: #bdbdbd;
+    }
+
+    /* eye icon SVG */
+    #eyeIcon {
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: 0.2s;
+    }
+    #eyeIcon:hover { opacity: 1; }
+
+    .forget-row {
+      text-align: right;
+      margin-top: -10px;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+
+    .forget-row a { color: #28c15c; text-decoration: none; }
+
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .checkbox-row input {
+      width: 18px;
+      height: 18px;
+      margin-right: 10px;
+      margin-top: 2px;
+    }
+
+    .checkbox-row a { color: #e6a84a; }
+
+    .btn {
+      width: 100%;
+      padding: 14px;
+      font-size: 18px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: #92f78f;
+      color: white;
+      margin-bottom: 18px;
+    }
+
+    .btn-secondary {
+      background: white;
+      border: 1px solid #eee;
+      color: #555;
+    }
+
+    .btn:hover { opacity: 0.9; }
+
+    .country {
+      text-align: center;
+      color: #555;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <div>
+      <h1 class="title">Autentificare cont</h1>
+
+      <!-- FORMULAR -->
+      <form class="form" action="/login" method="POST">
+
+        <!-- Email -->
+        <div class="input-group">
+          <div class="input-wrapper">
+            <span class="input-icon">👤</span>
+            <input type="email" name="email" placeholder="Introduceți email-ul" required>
+          </div>
+        </div>
+
+        <!-- Parola -->
+        <div class="input-group">
+          <div class="input-wrapper">
+            <span class="input-icon">🔒</span>
+            <input id="passField" type="password" name="password" placeholder="Introduceți parola" required>
+
+            <!-- Eye Icon (SVG) -->
+            <svg id="eyeIcon" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Uitare parola -->
+        <div class="forget-row">
+          <a href="#">Ați uitat parola?</a>
+        </div>
+
+        <!-- Termeni -->
+        <div class="checkbox-row">
+          <input type="checkbox" required>
+          <label>
+            Am citit și sunt de acord cu
+            <a href="#">Termenii utilizatorului</a> și
+            <a href="#">Politica de confidențialitate</a>.
+          </label>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Autentificare</button>
+        <button class="btn btn-secondary" type="button">Înregistrare rapidă</button>
+
+      </form>
+    </div>
+
+    <div class="country">Moldova ▸</div>
+  </div>
+
+  <!-- Script pentru afișarea/vizibilitatea parolei -->
+  <script>
+    const pass = document.getElementById("passField");
+    const eye = document.getElementById("eyeIcon");
+
+    eye.addEventListener("click", () => {
+      if (pass.type === "password") {
+        pass.type = "text";
+        eye.style.opacity = "1";
+      } else {
+        pass.type = "password";
+        eye.style.opacity = "0.6";
+      }
+    });
+  </script>
+
+</body>
+</html>
