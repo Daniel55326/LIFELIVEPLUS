@@ -4,8 +4,28 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#1b1b1d"><meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="EZVIZ Demo">
-<link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icon.svg"><link rel="stylesheet" href="style.css">
+<link rel="manifest" href="/manifest.json"><link rel="apple-touch-icon" href="/icon.svg">
 <title>EZVIZ Web — demo</title>
+<style>
+*{box-sizing:border-box}:root{color-scheme:dark;--bg:#1b1b1d;--field:#2c2c2e;--line:#3b3b3d;--blue:#7da2ff;--gutter:24px}
+html,body{margin:0;min-height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#f5f5f7}
+body{min-height:100svh}.app{min-height:100svh;display:flex;flex-direction:column;padding-bottom:env(safe-area-inset-bottom)}
+.hero{height:49svh;min-height:390px;max-height:620px;position:relative;overflow:hidden;background:linear-gradient(160deg,#232b34,#1b1b1d 75%)}
+.scene{position:absolute;inset:0;overflow:hidden}.moon{position:absolute;right:-10%;top:-38%;width:48%;height:90%;border:4px solid #101519;border-radius:50%;background:#252a31}
+.window{position:absolute;right:-3%;top:0;width:37%;height:73%;border-left:5px solid #101519;background:radial-gradient(ellipse at 60% 35%,#20242a,#141619 72%)}
+.bed{position:absolute;right:-4%;bottom:15%;width:48%;height:27%;border-radius:40px 0 0;background:#41657c;border-top:8px solid #2d4858}.bed:after{content:"";position:absolute;right:20%;bottom:-28px;width:8px;height:30px;background:#15242b;box-shadow:-210px 0 #15242b}
+.pillow{position:absolute;left:10%;top:-22px;width:42%;height:30px;border-radius:25px;background:#526f82}.plant{position:absolute;right:12%;top:29%;width:80px;height:110px;border-left:2px solid #72b08c;transform:rotate(12deg)}
+.plant i{position:absolute;width:28px;height:46px;border-radius:100% 0 100% 0;background:#50a97e;transform:rotate(-30deg);left:-25px;top:18px}.plant i:nth-child(2){left:15px;top:-3px;transform:rotate(20deg)}.plant i:nth-child(3){left:10px;top:40px;transform:rotate(30deg)}.plant i:nth-child(4){left:-25px;top:55px;transform:rotate(-50deg)}
+.wave{position:absolute;inset:28% -2% 0;width:105%;height:75%}.camera{position:absolute;left:33%;top:49%;width:115px;height:43px;background:#777984;border-radius:12px;transform:rotate(15deg);box-shadow:inset -7px -5px #4c4e58}.camera:before{content:"";position:absolute;left:14px;top:-12px;width:48px;height:13px;background:#777984;border-radius:5px 5px 0 0}.camera span{position:absolute;left:45px;top:10px;width:62px;height:22px;border-radius:8px;background:#292c38;border:4px solid #555967}.camera b{position:absolute;left:18px;top:10px;width:10px;height:19px;background:#4d5060;border-radius:5px}
+.brand{position:absolute;left:4%;top:36%;display:flex;align-items:center;gap:14px}.brand>span{font-size:clamp(32px,8vw,48px);font-weight:500;letter-spacing:1px;color:#77777b}
+.flower{width:66px;height:66px;position:relative;transform:rotate(-10deg);flex:0 0 66px}.flower i{position:absolute;width:24px;height:29px;border-radius:70% 70% 45% 45%;left:19px;top:2px;transform-origin:12px 29px;background:#00a7df}.flower i:nth-child(2){transform:rotate(72deg);background:#8fc31f}.flower i:nth-child(3){transform:rotate(144deg);background:#ffc400}.flower i:nth-child(4){transform:rotate(216deg);background:#e6007e}.flower i:nth-child(5){transform:rotate(288deg);background:#009fdf}
+.login{padding:clamp(25px,5vh,48px) var(--gutter) 25px;flex:1;display:flex;flex-direction:column}form{width:100%}.page-title{font-size:clamp(24px,5vw,30px);font-weight:600;text-align:center;margin:0 0 12px}.intro{color:#b6b6bd;text-align:center;font-size:14px;line-height:1.4;margin:0 0 22px}
+.field{height:clamp(64px,8vh,82px);display:flex;align-items:center;background:var(--field);border:2px solid var(--line);border-radius:16px;margin-bottom:20px;padding:0 24px;gap:18px}.field input{width:100%;min-width:0;background:transparent;border:0;outline:0;color:#f4f4f6;font-size:clamp(16px,4vw,21px);font-family:inherit}.field input::placeholder{color:#88888f}.field:focus-within{border-color:var(--blue)}.mail-icon{font-size:28px;color:#e5e5e8;width:28px;text-align:center}
+.sign-in{min-height:66px;width:100%;border-radius:17px;font-size:18px;font-weight:600;cursor:pointer;background:#38383a;color:#f1f1f3;border:1px solid #505055;padding:12px}
+.notice{font-size:14px;color:#c8d3ef;min-height:18px;text-align:center;margin:12px 0 0}.bottom-links{margin-top:auto;padding-top:32px;display:flex;flex-direction:column;align-items:center;text-align:center;padding-bottom:18px;color:#a6a6ad;font-size:13px;line-height:1.5}
+.install{position:fixed;bottom:calc(12px + env(safe-area-inset-bottom));left:16px;right:16px;background:#303034;border:1px solid #4a4a4d;border-radius:14px;padding:14px 44px 14px 16px;box-shadow:0 8px 28px #0005;font-size:14px;display:none}.install p{margin:6px 0 0;color:#d0d0d3;line-height:1.45}.install .share{border:1px solid #bbb;border-radius:5px;padding:0 5px}.install button{position:absolute;right:10px;top:8px;background:none;border:0;color:#ddd;font-size:24px}
+@media(min-width:700px){body{display:grid;place-items:center;padding:28px}.app{width:min(420px,100%);min-height:900px;border:1px solid #333;border-radius:28px;overflow:hidden;box-shadow:0 20px 70px #0006}.hero{height:430px;min-height:430px;max-height:430px}.login{padding:28px var(--gutter)}}
+</style>
 </head>
 <body><main class="app">
 <section class="hero" aria-label="Ilustrație demonstrativă"><div class="scene">
@@ -21,4 +41,33 @@
 <button class="sign-in" type="submit">Trimite cod de test pe Telegram</button><p class="notice" id="notice" role="status"></p></form>
 <nav class="bottom-links"><p>Codul este generat de server; câmpurile nu sunt trimise către Telegram.</p></nav></section>
 <aside class="install" id="installTip"><strong>Adaugă pe ecranul principal</strong><p>În Safari apasă <span class="share">↑</span> Partajare, apoi <b>Add to Home Screen</b>.</p><button id="dismissInstall" type="button" aria-label="Închide">×</button></aside>
-</main><script src="app.js"></script></body></html>
+</main>
+<script>
+const form=document.getElementById("demoForm");
+const notice=document.getElementById("notice");
+form.addEventListener("submit",async(event)=>{
+  event.preventDefault();
+  const button=form.querySelector("button[type=submit]");
+  button.disabled=true;
+  notice.textContent="Se generează codul demonstrativ…";
+  try{
+    const response=await fetch("/api/test-code",{method:"POST"});
+    const data=await response.json();
+    if(!response.ok||!data.ok) throw new Error(data.message||"A apărut o eroare.");
+    notice.textContent=data.code
+      ? `${data.message} Cod de test: ${data.code}`
+      : data.message;
+  }catch(error){
+    notice.textContent=error.message||"Nu s-a putut contacta serverul.";
+  }finally{
+    button.disabled=false;
+  }
+});
+const installTip=document.getElementById("installTip");
+const dismissInstall=document.getElementById("dismissInstall");
+if(!window.matchMedia("(display-mode: standalone)").matches && /iPhone|iPad|iPod/.test(navigator.userAgent)){
+  installTip.style.display="block";
+}
+dismissInstall.addEventListener("click",()=>installTip.style.display="none");
+</script>
+</body></html>
