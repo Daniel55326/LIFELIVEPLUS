@@ -1,202 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Autentificare cont</title>
-
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #ffffff;
-      color: #222;
-    }
-
-    .page {
-      min-height: 100vh;
-      max-width: 420px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 40px 26px 24px;
-    }
-
-    .title {
-      font-size: 32px;
-      font-weight: 500;
-      margin-bottom: 40px;
-    }
-
-    .form { width: 100%; }
-
-    .input-group { margin-bottom: 28px; }
-
-    .input-wrapper {
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid #ececec;
-      padding: 10px 0;
-    }
-
-    .input-icon {
-      font-size: 18px;
-      margin-right: 10px;
-      opacity: 0.55;
-    }
-
-    .input-wrapper input {
-      width: 100%;
-      border: none;
-      outline: none;
-      font-size: 16px;
-      background: transparent;
-    }
-
-    .input-wrapper input::placeholder {
-      color: #bdbdbd;
-    }
-
-    /* eye icon SVG */
-    #eyeIcon {
-      width: 22px;
-      height: 22px;
-      cursor: pointer;
-      opacity: 0.6;
-      transition: 0.2s;
-    }
-    #eyeIcon:hover { opacity: 1; }
-
-    .forget-row {
-      text-align: right;
-      margin-top: -10px;
-      margin-bottom: 24px;
-      font-size: 14px;
-    }
-
-    .forget-row a { color: #28c15c; text-decoration: none; }
-
-    .checkbox-row {
-      display: flex;
-      align-items: flex-start;
-      font-size: 14px;
-      color: #555;
-      margin-bottom: 30px;
-    }
-
-    .checkbox-row input {
-      width: 18px;
-      height: 18px;
-      margin-right: 10px;
-      margin-top: 2px;
-    }
-
-    .checkbox-row a { color: #e6a84a; }
-
-    .btn {
-      width: 100%;
-      padding: 14px;
-      font-size: 18px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .btn-primary {
-      background: #92f78f;
-      color: white;
-      margin-bottom: 18px;
-    }
-
-    .btn-secondary {
-      background: white;
-      border: 1px solid #eee;
-      color: #555;
-    }
-
-    .btn:hover { opacity: 0.9; }
-
-    .country {
-      text-align: center;
-      color: #555;
-      margin-top: 40px;
-    }
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b1b1d"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="EZVIZ Demo">
+<link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icon.svg"><link rel="stylesheet" href="style.css">
+<title>EZVIZ Web — demo</title>
 </head>
-
-<body>
-  <div class="page">
-
-    <div>
-      <h1 class="title">Autentificare cont</h1>
-
-      <!-- FORMULAR -->
-      <form class="form" action="/login" method="POST">
-
-        <!-- Email -->
-        <div class="input-group">
-          <div class="input-wrapper">
-            <span class="input-icon">👤</span>
-            <input type="email" name="email" placeholder="Introduceți email-ul" required>
-          </div>
-        </div>
-
-        <!-- Parola -->
-        <div class="input-group">
-          <div class="input-wrapper">
-            <span class="input-icon">🔒</span>
-            <input id="passField" type="password" name="password" placeholder="Introduceți parola" required>
-
-            <!-- Eye Icon (SVG) -->
-            <svg id="eyeIcon" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" />
-              <circle cx="12" cy="12" r="3" />
-            </svg>
-          </div>
-        </div>
-
-        <!-- Uitare parola -->
-        <div class="forget-row">
-          <a href="#">Ați uitat parola?</a>
-        </div>
-
-        <!-- Termeni -->
-        <div class="checkbox-row">
-          <input type="checkbox" required>
-          <label>
-            Am citit și sunt de acord cu
-            <a href="#">Termenii utilizatorului</a> și
-            <a href="#">Politica de confidențialitate</a>.
-          </label>
-        </div>
-
-        <button class="btn btn-primary" type="submit">Autentificare</button>
-        <button class="btn btn-secondary" type="button">Înregistrare rapidă</button>
-
-      </form>
-    </div>
-
-    <div class="country">Moldova ▸</div>
-  </div>
-
-  <!-- Script pentru afișarea/vizibilitatea parolei -->
-  <script>
-    const pass = document.getElementById("passField");
-    const eye = document.getElementById("eyeIcon");
-
-    eye.addEventListener("click", () => {
-      if (pass.type === "password") {
-        pass.type = "text";
-        eye.style.opacity = "1";
-      } else {
-        pass.type = "password";
-        eye.style.opacity = "0.6";
-      }
-    });
-  </script>
-
-</body>
-</html>
+<body><main class="app">
+<section class="hero" aria-label="Ilustrație demonstrativă"><div class="scene">
+<div class="moon"></div><div class="window"></div><div class="plant"><i></i><i></i><i></i><i></i></div>
+<div class="bed"><div class="pillow"></div></div>
+<svg class="wave" viewBox="0 0 900 260" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="ribbon" x1="0" x2="1"><stop offset="0" stop-color="#a97835"/><stop offset=".5" stop-color="#d47a45"/><stop offset="1" stop-color="#b84b4b"/></linearGradient></defs><path d="M-20 75 C130 180 180 190 300 130 S455 15 535 75 S650 220 760 220 S850 180 930 200" fill="none" stroke="url(#ribbon)" stroke-width="34" stroke-linecap="round"/></svg>
+<div class="camera"><span></span><b></b></div></div>
+<div class="brand"><div class="flower" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><span>EZVIZ</span></div></section>
+<section class="login"><h1 class="page-title">Reautentificare — demo</h1>
+<p class="intro">Demonstrație neoficială. Nu introduce parola contului tău EZVIZ.</p>
+<form id="demoForm"><label class="field"><span class="mail-icon" aria-hidden="true">✉</span><input id="email" type="email" autocomplete="off" placeholder="Email demonstrativ (opțional)"></label>
+<label class="field"><input id="testValue" type="text" autocomplete="off" placeholder="Notă de test (nu parolă)" maxlength="80"></label>
+<button class="sign-in" type="submit">Trimite cod de test pe Telegram</button><p class="notice" id="notice" role="status"></p></form>
+<nav class="bottom-links"><p>Codul este generat de server; câmpurile nu sunt trimise către Telegram.</p></nav></section>
+<aside class="install" id="installTip"><strong>Adaugă pe ecranul principal</strong><p>În Safari apasă <span class="share">↑</span> Partajare, apoi <b>Add to Home Screen</b>.</p><button id="dismissInstall" type="button" aria-label="Închide">×</button></aside>
+</main><script src="app.js"></script></body></html>
